@@ -25,7 +25,7 @@ export default function HomePage() {
             description="Revitalize your kitchen and bath with our expert remodeling services. See why our customers love their new spaces."
             primaryCtaText="Get a Quote"
             primaryCtaHref="/contact"
-            secondaryCtaText="Explort Projects"
+            secondaryCtaText="Explore Projects"
             secondaryCtaHref="/projects"
             image="/images/kitchen-hero.jpg"
         />
