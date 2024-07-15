@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Hero from "../components/Hero";
+import Services from "@/components/Services";
 
 export default function HomePage() {
   return (
@@ -26,8 +27,9 @@ export default function HomePage() {
             primaryCtaHref="/contact"
             secondaryCtaText="Explort Projects"
             secondaryCtaHref="/projects"
-            image="/kitchen-hero.jpg"
+            image="/images/kitchen-hero.jpg"
         />
+        <Services />
     </div>
   );
 }

@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from 'react';
@@ -18,7 +17,7 @@ const Header = () => {
         <Link href="/">
             <div className={styles.logoContainer}>
                 <Image
-                src="/logo-white.png"
+                src="/images/logo-white.png"
                 alt="The Home Design Center Logo"
                 width={50}
                 height={50}

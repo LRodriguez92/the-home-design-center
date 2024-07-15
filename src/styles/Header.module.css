@@ -1,96 +1,95 @@
-/* src/styles/Header.module.css */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    position: relative;
-  }
-  
-  .logoContainer {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logoText {
-    margin-left: 0.5rem;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  position: relative;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logoText {
+  margin-left: 0.5rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.ctaButton {
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.ctaButton:hover {
+  background-color: #005bb5;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
   .nav {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-  }
-  
-  .nav a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .ctaButton {
-    background-color: #0070f3;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
-  }
-  
-  .ctaButton:hover {
-    background-color: #005bb5;
-  }
-  
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-  }
-  
-  .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 4px 0;
-  }
-  
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    .nav {
-      /* position: absolute;
+    /* position: absolute;
       top: 100%;
       left: 0;
       width: 100%;
       flex-direction: column;
       background-color: #333;
       display: none; */
-        position: absolute;
-        top: -500%;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        background-color: #333;
-        transition: top 0.3s ease-in-out;
-        z-index: -1; /* Ensure it is behind the header initially */
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
-  
-    .nav.open {
-      top: 100%;
-    }
-  
-    .hamburger {
-      display: flex;
-    }
-
-    .contactNav {
-        width: 90%;
-    }
-
-    .ctaButton {
-        width: 100%;
-    }
+    position: absolute;
+    top: -500%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #333;
+    transition: top 0.3s ease-in-out;
+    z-index: -1;
+    /* Ensure it is behind the header initially */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
-  
+
+  .nav.open {
+    top: 100%;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .contactNav {
+    width: 90%;
+  }
+
+  .ctaButton {
+    width: 100%;
+  }
+}
