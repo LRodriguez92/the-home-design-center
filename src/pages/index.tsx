@@ -1,7 +1,8 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Hero from "../components/Hero";
-import Services from "@/components/Services";
+import Services from "../components/Services";
+import FeaturedProjects from "../components/FeaturedProjects";
 
 export default function HomePage() {
   return (
@@ -30,6 +31,7 @@ export default function HomePage() {
             image="/images/kitchen-hero.jpg"
         />
         <Services />
+        <FeaturedProjects />
     </div>
   );
 }
