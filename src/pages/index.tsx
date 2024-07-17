@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import Services from "../components/Services";
 import FeaturedProjects from "../components/FeaturedProjects";
 import Testimonials from "../components/Testimonials";
+import InstagramPosts from "@/components/InstagramPosts";
 
 export default function HomePage() {
   return (
@@ -34,6 +35,7 @@ export default function HomePage() {
         <Services />
         <FeaturedProjects />
         <Testimonials />
+        {/* <InstagramPosts /> */}
     </div>
   );
 }
