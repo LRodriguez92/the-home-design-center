@@ -98,3 +98,11 @@
         gap: 10px;
     }
 }
+
+.slider {
+
+    .slick-prev,
+    .slick-next {
+        color: black;
+    }
+}
