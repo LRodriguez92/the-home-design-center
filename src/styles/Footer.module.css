@@ -1,0 +1,138 @@
+.footerContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0;
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+}
+
+.contactSection {
+    padding: 50px 50px;
+    background-color: #333;
+}
+
+.header {
+    font-size: 2.5rem;
+}
+
+.formSection {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.contactSection h2,
+.formSection h2 {
+    margin-bottom: 20px;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.locations {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px;
+}
+
+.locations ul {
+    list-style: none;
+    padding: 0;
+}
+
+.locations ul li {
+    margin-bottom: 10px;
+}
+
+.links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.socialIcon {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+}
+
+.footerText {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.formSection form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.formGroup input,
+.formGroup textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formGroup input {
+    width: calc(50% - 10px);
+    margin-right: 10px;
+}
+
+.formGroup textarea {
+    resize: none;
+}
+
+.submitButton {
+    padding: 10px 20px;
+    background-color: #0070f3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+    background-color: #005bb5;
+}
+
+@media (max-width: 1024px) {
+    .footerContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .contactSection,
+    .formSection {
+        padding: 20px;
+    }
+
+    .formGroup input {
+        width: 100%;
+        margin-right: 0;
+    }
+}

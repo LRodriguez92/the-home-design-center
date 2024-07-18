@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Slider from 'react-slick';
 import styles from '../styles/InstagramGrid.module.css';
 import "slick-carousel/slick/slick.css";
@@ -15,6 +15,7 @@ const instagramPosts = [
 
 const InstagramGrid: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,11 +29,43 @@ const InstagramGrid: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Ensure the Instagram embed script is loaded
-    const script = document.createElement('script');
-    script.src = '//www.instagram.com/embed.js';
-    script.async = true;
-    document.body.appendChild(script);
+    const scriptLoaded = document.querySelector('script[src="//www.instagram.com/embed.js"]');
+    if (!scriptLoaded) {
+      const script = document.createElement('script');
+      script.src = '//www.instagram.com/embed.js';
+      script.async = true;
+      script.onload = () => {
+        console.log('Instagram embed script loaded.');
+        processInstagramEmbeds();
+      };
+      document.body.appendChild(script);
+    } else {
+      console.log('Instagram embed script already loaded.');
+      processInstagramEmbeds();
+    }
+  }, []);
+
+  const processInstagramEmbeds = () => {
+    if (window.instgrm && window.instgrm.Embeds && window.instgrm.Embeds.process) {
+      console.log('Processing Instagram embeds.');
+      window.instgrm.Embeds.process();
+    }
+  };
+
+  const handleScroll = () => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+        processInstagramEmbeds();
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const sliderSettings = {
@@ -50,7 +83,7 @@ const InstagramGrid: React.FC = () => {
   };
 
   return (
-    <div className={styles.instagramGrid}>
+    <div className={styles.instagramGrid} ref={containerRef}>
       <h2 className={styles.header}>Instagram Posts</h2>
       {isMobile ? (
         <Slider {...sliderSettings} className={styles.slider}>
