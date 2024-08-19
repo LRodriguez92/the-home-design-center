@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import styles from '../styles/Footer.module.css';
 import PhoneInput from 'react-phone-input-2';
