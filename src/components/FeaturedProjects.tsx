@@ -3,6 +3,9 @@ import Slider from 'react-slick';
 import Image from 'next/image';
 import Modal from 'react-modal';
 import styles from '../styles/FeaturedProjects.module.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 const projects = [
   { id: 1, title: 'Modern Kitchen Remodel', image: '/images/kitchen-hero.jpg' },
