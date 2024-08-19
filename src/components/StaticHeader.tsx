@@ -1,11 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import InteractiveHeader from './InteractiveHeader';
 import styles from '../styles/Header.module.css';
 
 const StaticHeader: React.FC = () => {
   return (
-    <header className={styles.header}>
+    <div className={styles.headerContent}>
       <Link href="/">
         <div className={styles.logoContainer}>
           <Image
@@ -17,7 +18,9 @@ const StaticHeader: React.FC = () => {
           <h1 className={styles.logoText}>The Home Design Center</h1>
         </div>
       </Link>
-      <nav className={styles.nav}>
+
+      {/* Full Navigation for Desktop */}
+      <nav className={styles.navDesktop}>
         <Link href="/">Home</Link>
         <Link href="/services">Services</Link>
         <Link href="/projects">Projects</Link>
@@ -26,7 +29,10 @@ const StaticHeader: React.FC = () => {
           <button className={styles.ctaButton}>Contact Us</button>
         </Link>
       </nav>
-    </header>
+
+      {/* Insert the Interactive Header here for the mobile hamburger menu */}
+      <InteractiveHeader />
+    </div>
   );
 };
 

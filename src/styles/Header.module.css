@@ -6,6 +6,14 @@
   color: #fff;
   padding: 1rem;
   position: relative;
+  z-index: 3; /* Ensure the header stays on top */
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .logoContainer {
@@ -17,13 +25,13 @@
   margin-left: 0.5rem;
 }
 
-.nav {
+.navDesktop {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
 
-.nav a {
+.navDesktop a {
   color: #fff;
   text-decoration: none;
 }
@@ -54,42 +62,53 @@
   margin: 4px 0;
 }
 
+/* Mobile Navigation */
+.navMobile {
+  display: none;
+  flex-direction: column;
+  position: fixed; /* Fixed positioning */
+  top: -100%; /* Place the navigation below the header */
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  transition: top 0.5s ease-in-out;
+  z-index: -1; /* Ensure it's below the header when closed */
+}
+
+.navMobile.open {
+  top: 7%; /* When open, keep it below the header */
+}
+
+.navMobile a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.contactNav {
+  width: 90%;
+  margin: 0 auto; /* Center the button on mobile */
+}
+
+.ctaButton {
+  width: 100%;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
-  .nav {
-    /* position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      flex-direction: column;
-      background-color: #333;
-      display: none; */
-    position: absolute;
-    top: -500%;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    background-color: #333;
-    transition: top 0.3s ease-in-out;
-    z-index: -1;
-    /* Ensure it is behind the header initially */
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  .nav.open {
-    top: 100%;
+  .navDesktop {
+    display: none; /* Hide desktop navigation on mobile */
   }
 
   .hamburger {
+    display: flex; /* Show hamburger menu on mobile */
+  }
+
+  .navMobile {
     display: flex;
-  }
-
-  .contactNav {
-    width: 90%;
-  }
-
-  .ctaButton {
-    width: 100%;
+    flex-direction: column;
   }
 }
