@@ -1,5 +1,3 @@
-// src/components/FeaturedProjects.tsx
-
 import React, { useState, useRef, useEffect } from 'react';
 import Slider from 'react-slick';
 import Image from 'next/image';
