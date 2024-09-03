@@ -1,6 +1,6 @@
 import React from 'react';
 import ServicePreviewCard from './ServicePreviewCard';
-import styles from '../styles/Services.module.css';
+import styles from '../styles/ServicesPreview.module.css';
 
 const services = [
   {

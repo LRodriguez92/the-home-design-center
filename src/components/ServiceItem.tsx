@@ -5,7 +5,7 @@ import styles from '../styles/ServiceItem.module.css';
 
 interface ServiceItemProps {
   title: string;
-  summary: string;
+  summary: string[];
   description: string[];
   image: string;
   ctaText: string;
@@ -23,7 +23,11 @@ const ServiceItem: React.FC<ServiceItemProps> = ({ title, summary, description, 
       </div>
       <div className={styles.contentWrapper}>
         <h3 className={styles.title}>{title}</h3>
-        <p className={styles.summary}>{summary}</p>
+        <div className={styles.summary}>
+          {summary.map((line, index) => (
+            <p key={index}>{line}</p>
+          ))}
+        </div>
         <ul className={styles.descriptionList}>
           {description.map((item, index) => (
             <li key={index} className={styles.descriptionItem}>{item}</li>
