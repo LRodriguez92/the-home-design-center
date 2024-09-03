@@ -5,13 +5,14 @@ export default function ServicesPage() {
     const services = [
         {
             title: "Kitchen Remodel",
-            summary: "Transform your kitchen into a modern and stylish space.",
+            summary: "Transform your kitchen into a functional and stylish space. Our kitchen remodeling services include:",
             description: [
-                "Custom cabinets, countertops, and lighting solutions.",
-                "Energy-efficient appliances and fixtures.",
-                "Optimized storage solutions to maximize space.",
-                "High-quality materials and finishes to ensure durability.",
-                "Designed to fit your lifestyle and cooking habits."
+                "Wall and Base Cabinets: Custom-designed to maximize storage and aesthetic appeal.",
+                "Kitchen Islands: Create a central hub for cooking and socializing.",
+                "Countertops: Choose from a variety of durable and beautiful materials.",
+                "Lighting: Modern lighting designs to brighten your kitchen.",
+                "Doors and Drawers: Quality doors and drawers that enhance your kitchen’s look and functionality.",
+                "Hardware & Fixtures: Premium hardware and fixtures to complete your kitchen’s transformation."
             ],
             image: "/images/kitchen-hero.jpg",
             ctaText: "Get a Quote",
@@ -19,12 +20,12 @@ export default function ServicesPage() {
         },
         {
             title: "Bath Remodel",
-            summary: "Indulge in luxury with our custom bath remodeling services.",
-            description: [
-                "Spa-like features including soaking tubs and rain showers.",
+            summary: "Elevate your bathroom’s functionality and style with our remodeling services. Whether adding a new shower or updating fixtures, we focus on creating a luxurious and practical space. Here’s how we differentiate between remodels and renovations:",
+            description: [,
                 "High-quality materials and fixtures.",
                 "Functional and beautiful designs tailored to your needs.",
-                "Water-saving solutions for eco-friendly living."
+                "Water-saving solutions for eco-friendly living.",
+                "Restoring and repairing existing elements to bring them back to life."
             ],
             image: "/images/kitchen-hero.jpg",
             ctaText: "Get a Quote",
@@ -32,12 +33,12 @@ export default function ServicesPage() {
         },
         {
             title: "3D Design",
-            summary: "Visualize your new space before any remodel with our 3D design services.",
+            summary: "Visualize your new kitchen before any materials are ordered with our 3D design services. Our expert designers will:",
             description: [
-                "Create accurate measurements of your kitchen space.",
-                "Produce detailed 3D renderings of your planned design.",
-                "Adjust and refine your design with our experts to ensure every detail is perfect.",
-                "Ensure your final design meets both your functional needs and aesthetic preferences."
+                "Take precise measurements of your kitchen space.",
+                "Create accurate 3D renderings of your proposed kitchen.",
+                "Consult with you on desired changes and finalize the design details.",
+                "Allow you to see your new kitchen in a realistic 3-dimensional format, including options to change flooring, wall colors, counter-tops, and cabinet finishes."
             ],
             image: "/images/kitchen-hero.jpg",
             ctaText: "Get a Quote",
@@ -45,10 +46,10 @@ export default function ServicesPage() {
         },
         {
             title: "Drywall Texture",
-            summary: "Enhance walls and ceilings with texturing surfaces such as drywall texturing and skim coating.",
+            summary: "Enhance walls and ceilings with captivating texturing surfaces. We provide:",
             description: [
-                "Professional drywall tools to help produce a more finished appearance.",
-                "Finishes to suit your personal style, enhancing your home’s atmosphere."
+                "Professional wall textures to hide imperfections and add visual interest.",
+                "Finishes that reflect light beautifully, enhancing any room’s atmosphere."
             ],
             image: "/images/kitchen-hero.jpg",
             ctaText: "Get a Quote",
@@ -56,12 +57,14 @@ export default function ServicesPage() {
         },
         {
             title: "Flooring",
-            summary: "Choose from a wide range of flooring solutions to elevate any room in your home.",
+            summary: "Choose from a wide range of flooring solutions to suit every room in your home. Our offerings include:",
             description: [
-                "Hardwood, laminate, and tile flooring options.",
-                "Custom installation services tailored to your space.",
-                "High-quality flooring materials that ensure durability and aesthetics.",
-                "Eco-friendly and sustainable flooring solutions."
+                "Ceramic Tile: Durable and stylish for high-traffic areas.",
+                "Solid Wood: Timeless elegance and longevity.",
+                "Laminate and Engineered Wood: Versatile and cost-effective alternatives to solid wood.",
+                "Luxury Vinyl: High-quality, durable, and available in various designs.",
+                "Carpeting: Comfortable and warm for bedrooms and living areas.",
+                "Pavers: Ideal for outdoor spaces, providing durability and aesthetic appeal."
             ],
             image: "/images/kitchen-hero.jpg",
             ctaText: "Get a Quote",
@@ -69,10 +72,10 @@ export default function ServicesPage() {
         },
         {
             title: "Wall Removal",
-            summary: "Open up your living spaces by removing unnecessary walls.",
+            summary: "Open up your living spaces by removing unnecessary walls. Our services include:",
             description: [
                 "Professional assessment to ensure structural integrity.",
-                "Create an open concept layout for a modern living space.",
+                "Creating an open concept layout for a modern living space.",
                 "Ensure proper framing to maintain your home’s safety and stability."
             ],
             image: "/images/kitchen-hero.jpg",
@@ -81,12 +84,11 @@ export default function ServicesPage() {
         },
         {
             title: "Painting",
-            summary: "Transform the look and feel of your home with our comprehensive painting services.",
+            summary: "Enhance the beauty and ambiance of your home with our comprehensive interior painting services. Whether you're looking to refresh a single room or transform your entire home, our experienced painters provide meticulous craftsmanship and attention to detail, ensuring a stunning and lasting finish.",
             description: [
-                "Interior and exterior painting for residential and commercial properties.",
-                "High-quality paints that provide long-lasting protection and aesthetics.",
-                "Custom color matching and design consultations.",
-                "Professional painters ensure clean, crisp lines and smooth finishes."
+                "Surface Preparation: Thorough cleaning, sanding, and priming to ensure a smooth and durable finish.",
+                "Painting: Application of high-quality paint in your chosen color and finish.",
+                "Hardware Installation: Reinstalling or updating hardware for a complete transformation.",
             ],
             image: "/images/kitchen-hero.jpg",
             ctaText: "Get a Quote",
@@ -94,11 +96,17 @@ export default function ServicesPage() {
         },
         {
             title: "Expertise",
-            summary: "Our team specializes in high-quality, detail-oriented work, offering comprehensive expertise in all areas of home design and renovation.",
+            summary: "Our team is committed to delivering high-quality results and exceptional customer satisfaction throughout every phase of your project. From initial planning to final inspection, we ensure superior craftsmanship and attention to detail.",
             description: [
-                "Custom Woodworking: Cabinets and shelves tailored to your space.",
-                "Trim and Molding: Add character to your interiors with custom trim and molding solutions.",
-                "Efficient Project Management: Timely project completion and minimal disruption to your daily life."
+                "Design-Build: Collaborative planning with detailed proposals and custom solutions tailored to your needs.",
+                "Scheduling: Flexible timelines with clear milestones to track progress and ensure timely completion.",
+                "Estimating & Budgeting: Accurate and transparent cost estimates with effective cost management.",
+                "Quality Control: Adhering to strict quality standards with regular inspections to maintain consistency.",
+                "Safety Management: Implementing rigorous safety protocols and employing certified professionals.",
+                "Subcontractor Management: Collaborating with trusted subcontractors and ensuring seamless coordination.",
+                "Final Inspection: Thorough review and client walkthrough to ensure satisfaction.",
+                "Touch-Ups and Adjustments: Addressing necessary touch-ups for a perfect finish.",
+                "Warranty and Support: Offering warranties and providing ongoing support and maintenance."
             ],
             image: "/images/kitchen-hero.jpg",
             ctaText: "Get a Quote",
