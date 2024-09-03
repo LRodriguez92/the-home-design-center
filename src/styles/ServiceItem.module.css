@@ -1,0 +1,79 @@
+.serviceItem {
+    display: flex;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.imageWrapper {
+    flex: 1;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+}
+
+.contentWrapper {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.summary {
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.descriptionList {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.descriptionItem {
+    margin-bottom: 0.5rem;
+}
+
+.ctaButton {
+    background-color: #0070f3;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.ctaButton:hover {
+    background-color: #005bb5;
+}
+
+/* Image on the Left */
+.imageLeft {
+    flex-direction: row;
+}
+
+/* Image on the Right */
+.imageRight {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+    .serviceItem {
+        flex-direction: column;
+    }
+
+    .imageWrapper,
+    .contentWrapper {
+        width: 100%;
+    }
+}

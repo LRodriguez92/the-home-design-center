@@ -1,5 +1,5 @@
 import React from 'react';
-import ServiceCard from './ServiceCard';
+import ServicePreviewCard from './ServicePreviewCard';
 import styles from '../styles/Services.module.css';
 
 const services = [
@@ -59,7 +59,7 @@ const Services: React.FC = () => {
       <h2 className={styles.header}>Services</h2>
       <div className={styles.grid}>
         {services.map(service => (
-          <ServiceCard
+          <ServicePreviewCard
             key={service.title}
             title={service.title}
             description={service.description}

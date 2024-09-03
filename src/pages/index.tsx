@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Hero from "../components/Hero";
-import Services from "../components/Services";
+import ServicesPreview from "../components/ServicesPreview";
 import FeaturedProjects from "../components/FeaturedProjects";
 import Testimonials from "../components/Testimonials";
 import InstagramGrid from "../components/InstagramGrid";
@@ -32,7 +32,7 @@ export default function HomePage() {
             secondaryCtaHref="/projects"
             image="/images/kitchen-hero.jpg"
         />
-        <Services />
+        <ServicesPreview />
         <FeaturedProjects />
         <Testimonials />
         {/* <InstagramGrid /> */}
