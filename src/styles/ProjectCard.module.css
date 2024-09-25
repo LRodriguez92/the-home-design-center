@@ -1,0 +1,42 @@
+.card {
+    background-color: white;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.title {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.summary {
+    font-size: 1rem;
+    margin: 0 15px 15px;
+}
+
+.seeMoreButton {
+    background-color: #0070f3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.seeMoreButton:hover {
+    background-color: #005bb5;
+}

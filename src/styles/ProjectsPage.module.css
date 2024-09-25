@@ -1,0 +1,51 @@
+/* Container for project list */
+.projectList {
+    display: grid;
+    gap: 20px;
+    padding: 40px 0;
+}
+
+/* 3 columns layout for desktop */
+@media (min-width: 1024px) {
+    .projectList {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 2 columns layout for tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .projectList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 1 column layout for mobile */
+@media (max-width: 767px) {
+    .projectList {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Styling for the individual project cards */
+.projectList .card {
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    background-color: white;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.projectList .card:hover {
+    transform: translateY(-5px);
+}
+
+.projectList .card h3 {
+    margin: 15px 0;
+    font-size: 1.5rem;
+}
+
+.projectList .card p {
+    font-size: 1rem;
+    margin: 0 15px 15px;
+}
