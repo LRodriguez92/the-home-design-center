@@ -21,6 +21,26 @@ const Hero: React.FC<HeroProps> = ({
   secondaryCtaHref,
   image
 }) => {
+  const handleQuoteClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Create and store the message
+    const message = "I'm interested in getting a quote for your services.";
+    localStorage.setItem('footerMessage', message);
+    
+    // Scroll to footer
+    const footer = document.querySelector('#footer');
+    if (footer) {
+      const elementRect = footer.getBoundingClientRect();
+      const absoluteElementTop = elementRect.top + window.pageYOffset;
+      const middle = absoluteElementTop - (window.innerHeight / 2) + (elementRect.height / 2) - 100;
+      window.scrollTo({
+        top: middle,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className={styles.hero} style={{ backgroundImage: `url(${image})` }}>
       <div className={styles.overlay}></div>
@@ -28,7 +48,7 @@ const Hero: React.FC<HeroProps> = ({
         <h1 className={styles.header}>{header}</h1>
         <p className={styles.description}>{description}</p>
         <div className={styles.cta}>
-          <a href={primaryCtaHref} className={styles.primaryCta}>{primaryCtaText}</a>
+          <button onClick={handleQuoteClick} className={styles.primaryCta}>{primaryCtaText}</button>
           {secondaryCtaText && secondaryCtaHref && (
             <a href={secondaryCtaHref} className={styles.secondaryCta}>{secondaryCtaText}</a>
           )}
