@@ -16,6 +16,26 @@ interface ServiceItemProps {
 const ServiceItem: React.FC<ServiceItemProps> = ({ title, summary, description, image, ctaText, ctaHref, index }) => {
   const isImageRight = index % 2 !== 0;  // Determine if the image should be on the right
 
+  const handleQuoteClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Create and store the message
+    const message = `I'm interested in getting a quote for your ${title} service.`;
+    localStorage.setItem('footerMessage', message);
+    
+    // Scroll to footer
+    const footer = document.querySelector('#footer');
+    if (footer) {
+      const elementRect = footer.getBoundingClientRect();
+      const absoluteElementTop = elementRect.top + window.pageYOffset;
+      const middle = absoluteElementTop - (window.innerHeight / 2) + (elementRect.height / 2) - 100;
+      window.scrollTo({
+        top: middle,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className={`${styles.serviceItem} ${isImageRight ? styles.imageRight : styles.imageLeft}`}>
       <div className={styles.imageWrapper}>
@@ -33,7 +53,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({ title, summary, description, 
             <li key={index} className={styles.descriptionItem}>{item}</li>
           ))}
         </ul>
-        <a href={ctaHref} className={styles.ctaButton}>{ctaText}</a>
+        <button onClick={handleQuoteClick} className={styles.ctaButton}>{ctaText}</button>
       </div>
     </div>
   );
