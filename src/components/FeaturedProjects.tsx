@@ -20,7 +20,6 @@ const projects = [
 const FeaturedProjects: React.FC = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [isDragging, setIsDragging] = useState(false);
     const sliderRef = useRef<Slider>(null);
 
     const openModal = (index: number) => {
@@ -32,23 +31,6 @@ const FeaturedProjects: React.FC = () => {
         setModalIsOpen(false);
     };
 
-    const handleMouseDown = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseMove = () => {
-        if (sliderRef.current) {
-            setIsDragging(true);
-        }
-    };
-
-    const handleMouseUp = (index: number) => {
-        if (!isDragging) {
-            openModal(index);
-        }
-        setIsDragging(false);
-    };
-
     const settings = {
         dots: true,
         infinite: true,
@@ -58,6 +40,16 @@ const FeaturedProjects: React.FC = () => {
         autoplay: true,
         autoplaySpeed: 3000,
         arrows: false,
+        beforeChange: () => {
+            if (sliderRef.current) {
+                sliderRef.current.slickPause();
+            }
+        },
+        afterChange: () => {
+            if (sliderRef.current) {
+                sliderRef.current.slickPlay();
+            }
+        }
     };
 
     return (
@@ -68,9 +60,7 @@ const FeaturedProjects: React.FC = () => {
                     <div key={project.id} className={styles.slide}>
                         <div
                             className={styles.imageWrapper}
-                            onMouseDown={handleMouseDown}
-                            onMouseMove={handleMouseMove}
-                            onMouseUp={() => handleMouseUp(index)}
+                            onClick={() => openModal(index)}
                         >
                             <Image 
                                 src={project.image} 
