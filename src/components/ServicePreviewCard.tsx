@@ -11,6 +11,9 @@ interface ServiceCardProps {
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, image, link }) => {
+  // Create URL-friendly ID from title
+  const serviceId = title.toLowerCase().replace(/\s+/g, '-');
+
   return (
     <div className={styles.card}>
       <div className={styles.imageWrapper}>
@@ -18,7 +21,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, image, li
       </div>
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.description}>{description}</p>
-      <Link href={link} className={styles.link}>
+      <Link href={`/services#${serviceId}`} className={styles.link}>
         Learn More
       </Link>
     </div>

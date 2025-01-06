@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Hero from "../components/Hero";
 import ServiceItem from "../components/ServiceItem";
 import styles from "../styles/ServicesPage.module.css";
@@ -15,8 +16,8 @@ export default function ServicesPage() {
                 "Kitchen Islands: Create a central hub for cooking and socializing.",
                 "Countertops: Choose from a variety of durable and beautiful materials.",
                 "Lighting: Modern lighting designs to brighten your kitchen.",
-                "Doors and Drawers: Quality doors and drawers that enhance your kitchen’s look and functionality.",
-                "Hardware & Fixtures: Premium hardware and fixtures to complete your kitchen’s transformation."
+                "Doors and Drawers: Quality doors and drawers that enhance your kitchen's look and functionality.",
+                "Hardware & Fixtures: Premium hardware and fixtures to complete your kitchen's transformation."
             ],
             image: "/images/kitchen-hero.jpg",
             ctaText: "Get a Quote",
@@ -25,8 +26,8 @@ export default function ServicesPage() {
         {
             title: "Bath Remodel",
             summary: [
-                "Elevate your bathroom’s functionality and style with our remodeling services. Whether adding a new shower or updating fixtures, we focus on creating a luxurious and practical space.",
-                "Here’s how we differentiate between remodels and renovations:"
+                "Elevate your bathroom's functionality and style with our remodeling services. Whether adding a new shower or updating fixtures, we focus on creating a luxurious and practical space.",
+                "Here's how we differentiate between remodels and renovations:"
             ],
             description: [
                 "High-quality materials and fixtures.",
@@ -138,7 +139,27 @@ export default function ServicesPage() {
             ctaHref: "/contact"
         }
     ];
-    
+
+    useEffect(() => {
+        // Check if there's a hash in the URL
+        if (typeof window !== 'undefined' && window.location.hash) {
+            const id = window.location.hash.slice(1); // Remove the # symbol
+            const element = document.getElementById(id);
+            if (element) {
+                // Add a small delay to ensure smooth scrolling after page load
+                setTimeout(() => {
+                    const elementRect = element.getBoundingClientRect();
+                    const absoluteElementTop = elementRect.top + window.pageYOffset;
+                    // Consider element height and add a small upward offset
+                    const middle = absoluteElementTop - (window.innerHeight / 2) + (elementRect.height / 2) - 100;
+                    window.scrollTo({
+                        top: middle,
+                        behavior: 'smooth'
+                    });
+                }, 100);
+            }
+        }
+    }, []);
 
     return (
         <div>
@@ -152,18 +173,22 @@ export default function ServicesPage() {
                 image="/images/kitchen-hero.jpg"
             />
             <div className={`services-list ${styles.servicesList}`}>
-                {services.map((service, index) => (
-                    <ServiceItem 
-                        key={index}
-                        index={index}
-                        title={service.title}
-                        summary={service.summary}
-                        description={service.description}
-                        image={service.image}
-                        ctaText={service.ctaText}
-                        ctaHref={service.ctaHref}
-                    />
-                ))}
+                {services.map((service, index) => {
+                    const serviceId = service.title.toLowerCase().replace(/\s+/g, '-');
+                    return (
+                        <div key={index} id={serviceId}>
+                            <ServiceItem 
+                                index={index}
+                                title={service.title}
+                                summary={service.summary}
+                                description={service.description}
+                                image={service.image}
+                                ctaText={service.ctaText}
+                                ctaHref={service.ctaHref}
+                            />
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );
