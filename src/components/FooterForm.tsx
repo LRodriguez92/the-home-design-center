@@ -1,13 +1,22 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/Footer.module.css';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
-const FooterForm: React.FC = () => {
+interface FooterFormProps {
+  initialMessage?: string;
+}
+
+const FooterForm: React.FC<FooterFormProps> = ({ initialMessage = '' }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [countryCode, setCountryCode] = useState('');
+  const [message, setMessage] = useState(initialMessage);
+
+  useEffect(() => {
+    setMessage(initialMessage);
+  }, [initialMessage]);
 
   const handlePhoneChange = (value: string, country: any) => {
     setPhoneNumber(value);
@@ -69,7 +78,14 @@ const FooterForm: React.FC = () => {
         </div>
         <div className={styles.formGroup}>
           <label>Message <span className={styles.required}>*</span></label>
-          <textarea placeholder="Message" name="message" rows={4} required></textarea>
+          <textarea 
+            placeholder="Message" 
+            name="message" 
+            rows={4} 
+            required
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          ></textarea>
         </div>
         <button type="submit" className={styles.submitButton}>Submit Inquiry</button>
       </form>
