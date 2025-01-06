@@ -1,31 +1,54 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../styles/ServiceCard.module.css';
+import styles from '../styles/ServicePreviewCard.module.css';
 
-interface ServiceCardProps {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
+interface ServicePreviewCardProps {
+    title: string;
+    description: string;
+    image: string;
+    link: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, image, link }) => {
-  // Create URL-friendly ID from title
-  const serviceId = title.toLowerCase().replace(/\s+/g, '-');
+const ServicePreviewCard: React.FC<ServicePreviewCardProps> = ({ title, description, image, link }) => {
+    // Create URL-friendly ID from title
+    const serviceId = title.toLowerCase().replace(/\s+/g, '-');
 
-  return (
-    <div className={styles.card}>
-      <div className={styles.imageWrapper}>
-        <Image src={image} alt={title} layout="fill" objectFit="cover" />
-      </div>
-      <h3 className={styles.title}>{title}</h3>
-      <p className={styles.description}>{description}</p>
-      <Link href={`/services#${serviceId}`} className={styles.link}>
-        Learn More
-      </Link>
-    </div>
-  );
+    const handleClick = () => {
+        window.location.href = `/services#${serviceId}`;
+    };
+
+    return (
+        <div 
+            className={styles.card}
+            onClick={handleClick}
+            style={{ cursor: 'pointer' }}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    handleClick();
+                }
+            }}
+        >
+            <div className={styles.imageWrapper}>
+                <Image src={image} alt={title} layout="fill" objectFit="cover" />
+            </div>
+            <div className={styles.content}>
+                <h3 className={styles.title}>{title}</h3>
+                <p className={styles.description}>{description}</p>
+                <button 
+                    className={styles.learnMore}
+                    onClick={(e) => {
+                        e.stopPropagation(); // Prevent double triggering
+                        handleClick();
+                    }}
+                >
+                    Learn More
+                </button>
+            </div>
+        </div>
+    );
 };
 
-export default ServiceCard;
+export default ServicePreviewCard;

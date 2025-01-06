@@ -117,3 +117,19 @@
         padding: 0.75rem 1rem;
     }
 }
+
+.learnMore {
+    background-color: #0070f3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 0;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: auto;
+}
+
+.learnMore:hover {
+    background-color: #005bb5;
+}

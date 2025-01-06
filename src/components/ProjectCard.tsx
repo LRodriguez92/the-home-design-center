@@ -11,13 +11,32 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, summary, images, onSeeMore }) => {
     return (
-        <div className={styles.card}>
-            <div className={styles.imageWrapper} onClick={onSeeMore} role="button" tabIndex={0}>
+        <div 
+            className={styles.card} 
+            onClick={onSeeMore} 
+            style={{ cursor: 'pointer' }}
+            role="button" 
+            tabIndex={0}
+            onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    onSeeMore();
+                }
+            }}
+        >
+            <div className={styles.imageWrapper}>
                 <Image src={images[0]} alt={title} layout="fill" objectFit="cover" />
             </div>
             <h3 className={styles.title}>{title}</h3>
             <p className={styles.summary}>{summary}</p>
-            <button className={styles.seeMoreButton} onClick={onSeeMore}>See More</button>
+            <button 
+                className={styles.seeMoreButton} 
+                onClick={(e) => {
+                    e.stopPropagation(); // Prevent double triggering
+                    onSeeMore();
+                }}
+            >
+                See More
+            </button>
         </div>
     );
 };
