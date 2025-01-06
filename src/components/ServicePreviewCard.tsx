@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from '../styles/ServiceCard.module.css';
 
 interface ServiceCardProps {
@@ -17,7 +18,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, image, li
       </div>
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.description}>{description}</p>
-      <a href={link} className={styles.link}>Learn More</a>
+      <Link href={link} className={styles.link}>
+        Learn More
+      </Link>
     </div>
   );
 };
