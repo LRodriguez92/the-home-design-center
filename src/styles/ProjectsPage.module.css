@@ -2,7 +2,9 @@
 .projectList {
     display: grid;
     gap: 20px;
-    padding: 40px 0;
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* 3 columns layout for desktop */
