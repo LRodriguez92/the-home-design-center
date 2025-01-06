@@ -10,7 +10,6 @@ export default function ProjectsPage() {
         title: string;
         summary: string;
         images: string[];
-        description: string;
         ctaText: string;
     } | null>(null);
 

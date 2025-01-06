@@ -5,7 +5,7 @@ import styles from '../styles/Footer.module.css';
 
 const Footer: React.FC = () => {
   return (
-    <div className={styles.footerContainer}>
+    <div id="footer" className={styles.footerContainer}>
       <StaticFooter />
       <FooterForm />
     </div>

@@ -5,6 +5,11 @@ import InteractiveHeader from './InteractiveHeader';
 import styles from '../styles/Header.module.css';
 
 const StaticHeader: React.FC = () => {
+  const scrollToFooter = () => {
+    const footer = document.querySelector('#footer');
+    footer?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className={styles.headerContent}>
       <Link href="/">
@@ -25,9 +30,7 @@ const StaticHeader: React.FC = () => {
         <Link href="/services">Services</Link>
         <Link href="/projects">Projects</Link>
         <Link href="/testimonials">Testimonials</Link>
-        <Link href="/contact" className={styles.contactNav}>
-          <button className={styles.ctaButton}>Contact Us</button>
-        </Link>
+        <button onClick={scrollToFooter} className={styles.ctaButton}>Contact Us</button>
       </nav>
 
       {/* Insert the Interactive Header here for the mobile hamburger menu */}
