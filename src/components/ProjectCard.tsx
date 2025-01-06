@@ -12,7 +12,7 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, summary, images, onSeeMore }) => {
     return (
         <div className={styles.card}>
-            <div className={styles.imageWrapper}>
+            <div className={styles.imageWrapper} onClick={onSeeMore} role="button" tabIndex={0}>
                 <Image src={images[0]} alt={title} layout="fill" objectFit="cover" />
             </div>
             <h3 className={styles.title}>{title}</h3>

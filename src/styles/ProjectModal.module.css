@@ -4,52 +4,234 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 40px;
 }
 
 .modalContent {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
+    background-color: #f5f5f5;
+    padding: 0;
+    border-radius: 16px;
     width: 90%;
-    max-width: 800px;
+    max-width: 1200px;
     position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 .closeButton {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-    background: none;
-    border: none;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
     cursor: pointer;
+    color: white;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 0;
+    touch-action: pan-y pinch-zoom;
+    background-color: #000;
 }
 
 .imageSlider {
-    display: flex;
-    overflow-x: scroll;
+    position: relative;
+    width: 100%;
+    height: 600px;
 }
 
 .imageWrapper {
-    position: relative;
-    min-width: 300px;
-    height: 200px;
-    margin-right: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
-.description {
-    margin: 15px 0;
+.nextImage {
+    z-index: 1;
+}
+
+.slideOutLeft {
+    animation: slideOutLeft 0.3s ease-in-out forwards;
+}
+
+.slideOutRight {
+    animation: slideOutRight 0.3s ease-in-out forwards;
+}
+
+.slideInLeft {
+    animation: slideInLeft 0.3s ease-in-out forwards;
+}
+
+.slideInRight {
+    animation: slideInRight 0.3s ease-in-out forwards;
+}
+
+@keyframes slideOutLeft {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.navButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.navButton:first-of-type {
+    left: 20px;
+}
+
+.navButton:last-of-type {
+    right: 20px;
+}
+
+.thumbnailStrip {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+    background: linear-gradient(to bottom, #f5f5f5, #eaeaea);
+}
+
+.thumbnailStrip::-webkit-scrollbar {
+    height: 6px;
+}
+
+.thumbnailStrip::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.thumbnailStrip::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.thumbnail {
+    position: relative;
+    width: 100px;
+    height: 70px;
+    border: 2px solid transparent;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail:hover {
+    border-color: #0070f3;
+    transform: translateY(-2px);
+}
+
+.activeThumbnail {
+    border-color: #0070f3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .ctaButton {
+    display: block;
     background-color: #0070f3;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 16px 32px;
+    border-radius: 0;
     text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: none;
+}
+
+.ctaButton:hover {
+    background-color: #0051a2;
+    transform: none;
+    box-shadow: none;
 }
