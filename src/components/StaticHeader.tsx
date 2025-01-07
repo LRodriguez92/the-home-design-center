@@ -29,7 +29,7 @@ const StaticHeader: React.FC = () => {
         <Link href="/">Home</Link>
         <Link href="/services">Services</Link>
         <Link href="/projects">Projects</Link>
-        <Link href="/testimonials">Testimonials</Link>
+        {/* <Link href="/testimonials">Testimonials</Link> */}
         <button onClick={scrollToFooter} className={styles.ctaButton}>Contact Us</button>
       </nav>
 

@@ -34,7 +34,7 @@ export default function HomePage() {
         />
         <ServicesPreview />
         <FeaturedProjects />
-        <Testimonials />
+        {/* <Testimonials /> */}
         {/* <InstagramGrid /> */}
     </div>
   );
